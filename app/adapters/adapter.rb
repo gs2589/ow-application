@@ -16,19 +16,34 @@ module Adapter
 
 
     def track(keyword)
-
-      string=""
+      last_n_rates=[0,0,0,0,0,0,0,0,0,0]
+      keyword=keyword
+      tweet_number=0
+      start_time=Time.now
+      sampling_rate=1  #seconds
       TweetStream::Client.new.track(keyword) do |status|
-
-        ActionCable.server.broadcast 'data',
-        text: status.text,
-        keywords: keyword
-      head :ok
-
+         tweet_number+=1
+         finish_time=Time.now
+         # puts(status.text)
+         # puts(finish_time-start_time)
+         # puts("TWEET NUMBER:" + tweet_number.to_s)
+        if finish_time-start_time>sampling_rate
+          rate=60*tweet_number/(finish_time-start_time)
+          last_n_rates.push(rate)
+          last_n_rates.shift
+          average_rate=last_n_rates.inject(0){|sum,x| sum + x }/last_n_rates.length
+          start_time=Time.now
+          tweet_number=0
+          ActionCable.server.broadcast 'data',
+          text: status.text,
+          rate: average_rate
+        end
       end
 
     end
 
 end
+
+
 
 end

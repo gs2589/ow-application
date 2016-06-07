@@ -16,7 +16,7 @@ $(document).ready(function() {
   // add click listener here
   // it should call on fetchJSON()
 
-  $('#load-cars').on('click', function(e){
+  $('#load-tweets').on('click', function(e){
     
     fetchJSON();
 

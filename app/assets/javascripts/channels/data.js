@@ -4,6 +4,7 @@ App.messages = App.cable.subscriptions.create('DataChannel', {
   },
 
   renderMessage: function(data) {
-    return "<p> <b>" + data.text + ": </b>" + data.keyword + "</p>";
+    updateReadings(data.rate)
+    // return "<p> <b>" + data.text + ": </b>" + data.keywords + "</p>";
   }
 });
