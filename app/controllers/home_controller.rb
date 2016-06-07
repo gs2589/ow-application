@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def start
-    render :show
+    
     connection=Adapter::Twitter.new()
     connection.track("trump")
 

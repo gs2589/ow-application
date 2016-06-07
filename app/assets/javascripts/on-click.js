@@ -17,7 +17,8 @@ $(document).ready(function() {
   // it should call on fetchJSON()
 
   $('#load-tweets').on('click', function(e){
-    
+      e.preventDefault();
+      e.stopPropagation();
     fetchJSON();
 
   })
