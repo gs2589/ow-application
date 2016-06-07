@@ -1,9 +1,9 @@
 "use strict";
 
 
-function fetchJSON() {
+function startActionCable() {
 
-  $.ajax({
+  $.post({
     url: "/start", 
     method: 'POST',
     success: function(data){
@@ -19,7 +19,7 @@ $(document).ready(function() {
   $('#load-tweets').on('click', function(e){
       e.preventDefault();
       e.stopPropagation();
-    fetchJSON();
+      startActionCable();
 
   })
 
