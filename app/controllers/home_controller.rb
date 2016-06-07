@@ -6,7 +6,6 @@ class HomeController < ApplicationController
   end
 
   def start
-    puts ("im in the controller")
     connection=Adapter::Twitter.new()
     connection.track("trump")
 
