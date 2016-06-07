@@ -22,10 +22,11 @@ module Adapter
       tweet_number=0
       start_time=Time.now
       sampling_rate=1  #seconds
-      puts(TweetStream::Client.new.track(keyword) do |status|
+      TweetStream::Client.new.track(keyword) do |status|
          tweet_number+=1
          finish_time=Time.now
-          puts(status.text)
+          puts("Im in the twitter loop")
+          puts(status)
           puts(finish_time-start_time)
          # puts("TWEET NUMBER:" + tweet_number.to_s)
         if finish_time-start_time>sampling_rate
@@ -39,7 +40,7 @@ module Adapter
           text: status.text,
           rate: average_rate
         end
-      end)
+      end
 
     end
 
