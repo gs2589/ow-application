@@ -22,7 +22,7 @@ module Adapter
       tweet_number=0
       start_time=Time.now
       sampling_rate=1  #seconds
-      TweetStream::Client.new.track(keyword) do |status|
+      puts(TweetStream::Client.new.track(keyword) do |status|
          tweet_number+=1
          finish_time=Time.now
           puts(status.text)
@@ -39,7 +39,7 @@ module Adapter
           text: status.text,
           rate: average_rate
         end
-      end
+      end)
 
     end
 
