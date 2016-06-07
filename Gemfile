@@ -32,12 +32,14 @@ gem 'redis', '~> 3.0'
 gem 'figaro'
 
 gem 'tweetstream'
+gem 'rails_12factor'
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry'
+
 end
 
 group :development do
