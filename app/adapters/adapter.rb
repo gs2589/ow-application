@@ -16,6 +16,7 @@ module Adapter
 
 
     def track(keyword)
+      puts("im in the tracker")
       last_n_rates=[0,0,0,0,0,0,0,0,0,0]
       keyword=keyword
       tweet_number=0
@@ -24,8 +25,8 @@ module Adapter
       TweetStream::Client.new.track(keyword) do |status|
          tweet_number+=1
          finish_time=Time.now
-         # puts(status.text)
-         # puts(finish_time-start_time)
+          puts(status.text)
+          puts(finish_time-start_time)
          # puts("TWEET NUMBER:" + tweet_number.to_s)
         if finish_time-start_time>sampling_rate
           rate=60*tweet_number/(finish_time-start_time)
