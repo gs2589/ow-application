@@ -4,7 +4,7 @@
 function fetchJSON() {
 
   $.ajax({
-    url: "http://localhost:3000/start", 
+    url: "/start", 
     method: 'POST',
     success: function(data){
       
