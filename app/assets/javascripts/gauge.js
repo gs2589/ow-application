@@ -23,7 +23,7 @@ var gauge = function(container, configuration) {
     labelFormat         : d3.format(',g'),
     labelInset          : 10,
     
-    arcColorFn          : d3.interpolateHsl(d3.rgb('#e8e2ca'), d3.rgb('#3e6c0a'))
+    arcColorFn          : d3.interpolateHsl(d3.rgb('#E3D5D5'), d3.rgb('#917A7A'))
   };
   var range = undefined;
   var r = undefined;
@@ -87,7 +87,7 @@ var gauge = function(container, configuration) {
   
   function isRendered() {
     return (svg !== undefined);
-  }
+  } 
   that.isRendered = isRendered;
   
   function render(newValue) {
@@ -156,7 +156,6 @@ var gauge = function(container, configuration) {
   that.update = update;
 
   configure(configuration);
-  
   return that;
 };
 
@@ -166,20 +165,23 @@ var gauge = function(container, configuration) {
 
 
 function onDocumentReady() {
-  var powerGauge = gauge('#power-gauge', {
+  var number_of_crises = $(".crisis_unit").length
+  var crises_array = []
+
+  for(var i=1; i<=number_of_crises; i++){
+
+   var html_id='#power-gauge_'+i
+  
+  crises_array.push(gauge(html_id, {
     size: 300,
     clipWidth: 300,
-    clipHeight: 300,
+    clipHeight: 200,
     ringWidth: 60,
     maxValue: 1400,
     transitionMs: 4000,
-  });
-  powerGauge.render();
+  }));
+  crises_array[i-1].render();
   
-  window.updateReadings=function(value) {
-    
-    // just pump in random data here...
-    powerGauge.update(value);
   }
   
   // // every few seconds update reading values
@@ -187,7 +189,47 @@ function onDocumentReady() {
   // setInterval(function() {
   //   updateReadings();
   // }, 5 * 1000);
+
+
+// var powerGauge_2 = gauge('#power-gauge_2', {
+//     size: 300,
+//     clipWidth: 300,
+//     clipHeight: 300,
+//     ringWidth: 60,
+//     maxValue: 1400,
+//     transitionMs: 4000,
+//   });
+//   powerGauge_2.render();
+  
+  window.updateReadings=function(rate_array) {
+    
+    for(var i=1; i<=number_of_crises; i++){
+
+      crises_array[i-1].update(rate_array[i-1]);
+    }
+    // just pump in random data here...
+   
+    
+    
+  }
+
+
 }
+
+// ----------------------------------
+
+
+  
+  
+  // // every few seconds update reading values
+  // updateReadings();
+  // setInterval(function() {
+  //   updateReadings();
+  // }, 5 * 1000);
+
+
+// ----------------------------------
+
 
 if ( !window.isLoaded ) {
   window.addEventListener("load", function() {

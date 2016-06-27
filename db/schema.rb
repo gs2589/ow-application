@@ -11,17 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606183351) do
+ActiveRecord::Schema.define(version: 20160608173523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "casualties", force: :cascade do |t|
+    t.string   "number"
+    t.datetime "week_ending"
+    t.integer  "crisis_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "crises", force: :cascade do |t|
     t.text     "description"
-    t.integer  "casualties"
     t.text     "parties",     default: [],              array: true
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "name"
+    t.string   "wiki_url"
+    t.text     "keywords",    default: [],              array: true
   end
 
   create_table "reactions", force: :cascade do |t|

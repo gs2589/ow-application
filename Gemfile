@@ -32,7 +32,8 @@ gem 'redis', '~> 3.0'
 gem 'figaro'
 
 gem 'tweetstream'
-gem 'rails_12factor'  
+gem 'rails_12factor' 
+gem 'bootstrap-sass', '~> 3.3.6' 
 
 
 group :development, :test do

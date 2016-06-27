@@ -4,7 +4,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-  <meta name="viewport" content="width=320" />
+  <!-- <meta name="viewport" content="width=320" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Gauge</title>
   <script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
@@ -14,16 +15,16 @@
     margin: 32px;
   }
 
-  #power-gauge g.arc {
+  .gauge g.arc {
     fill: steelblue;
   }
 
-  #power-gauge g.pointer {
+  .gauge g.pointer {
     fill: #e85116;
     stroke: #b64011;
   }
   
-  #power-gauge g.label text {
+  .gauge g.label text {
     text-anchor: middle;
     font-size: 14px;
     font-weight: bold;
@@ -33,10 +34,41 @@
 </head>
 <body>
 
+
+
+
+<div class="container-fluid"> 
+
+<% @crises.each do |crisis| %>
+ <!-- the following line needs to be removed after tested (with it's 'end') -->
+     
+
+
+<div class="crisis_unit col-xs-12 col-sm-4">
+<div class="row" id=<%="power-gauge_#{crisis.id}"%>></div>
+  <table class="table table-striped table-bordered">
+    <tr><caption align="center"><b><%=crisis.name%></b></caption ></tr>
+    <!-- <tr><th align="left">This Week:<th><td>number_here</td></tr> -->
+    <!-- <tr><th align="left">This Month:<th><td>number_here</td></tr> --> 
+    <tr><th align="left">This Year:</th><td><%=crisis.get_curr_year_casualties%></td></tr>
+    <tr><th align="left">Last Year:</th><td><%=crisis.get_last_year_casualties%></td></tr> 
+    <tr><th align="left">Total:</th><td><%=crisis.get_total_casualties%></td></tr>    
+  </table>
+  <br>
+  <br>
+</div>
+  
+<%end%>
+
+</div>
+
 <button class="btn btn-success" id="load-tweets">Load more tweets</button>
+
+
 
 </body>
 </html>
 
 
-<div id="power-gauge"></div>
+
+
