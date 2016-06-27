@@ -177,7 +177,7 @@ function onDocumentReady() {
     clipWidth: 300,
     clipHeight: 165,
     ringWidth: 60,
-    maxValue: 500,
+    maxValue: 300,
     transitionMs: 4000,
   }));
 
