@@ -175,11 +175,12 @@ function onDocumentReady() {
   crises_array.push(gauge(html_id, {
     size: 300,
     clipWidth: 300,
-    clipHeight: 200,
+    clipHeight: 165,
     ringWidth: 60,
-    maxValue: 1400,
+    maxValue: 500,
     transitionMs: 4000,
   }));
+
   crises_array[i-1].render();
   
   }

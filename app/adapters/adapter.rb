@@ -15,7 +15,7 @@ module Adapter
 
 
 
-    def track(keywords)
+    def track()
       crisis_hash={} 
       Crisis.all.each {|crisis| crisis_hash[crisis.id]={keywords: crisis.keywords, tweet_number: 0, last_n_rates: [0,0,0,0,0,0,0,0,0,0], average_rate:0 }}
       keywords=[]

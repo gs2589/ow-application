@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def start
     connection=Adapter::Twitter.new()
-    connection.track("trump")
+    connection.track()
   end
 
 end

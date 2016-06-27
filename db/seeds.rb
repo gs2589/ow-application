@@ -14,7 +14,7 @@
       )
 
     crisis_2=Crisis.create(
-    name:"Syria Civil War",
+    name:"Syrian Civil War",
     description:"Syrian Civil Wars",
     parties:["Syrian Government", "Iraqi Government", "ISIL", "Kurds", "Free Syrian Army"],
     keywords:["isis","isil","kurd", "assad", "syria", "syrian", "aleppo"]
