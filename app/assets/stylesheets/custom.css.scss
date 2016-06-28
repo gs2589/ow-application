@@ -1,0 +1,13 @@
+body {
+  background: #222222;
+}
+
+.crisis_unit(@img){
+
+background-image: asset-data-url("@{img}");
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+
+
+}

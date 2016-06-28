@@ -36,30 +36,32 @@
 
 
 
-
+<div><h2 class="text-center"> WE HOLD THESE TRUTHS TO BE SELF-EVIDENT, THAT ALL MEN ARE CREATED EQUAL</h2></div>
+<br><br>
 <div class="container-fluid"> 
 
-<% @crises.each do |crisis| %>
+  <% @crises.each do |crisis| %>
  <!-- the following line needs to be removed after tested (with it's 'end') -->
      
 
 
-<div class="crisis_unit col-xs-12 col-sm-4">
-<div class="row" align="center" id=<%="power-gauge_#{crisis.id}"%>></div>
-<div class="text-center">Tweets per Minute</div>
-  <table class="table table-striped table-bordered">
-    <caption class="text-center" ><h4><strong><%=crisis.name%></strong></h4>Casualties</caption >
-    <!-- <tr><th align="left">This Week:<th><td>number_here</td></tr> -->
-    <!-- <tr><th align="left">This Month:<th><td>number_here</td></tr> --> 
-    <tr><th align="left">This Year:</th><td><%=crisis.get_curr_year_casualties%></td></tr>
-    <tr><th align="left">Last Year:</th><td><%=crisis.get_last_year_casualties%></td></tr> 
-    <tr><th align="left">Total:</th><td><%=crisis.get_total_casualties%></td></tr>    
-  </table>
-  <br>
-  <br>
-</div>
+    <div class="crisis_unit(1-IL.png) col-xs-12 col-sm-4">
+    <br>
+      <div class="row" align="center" id=<%="power-gauge_#{crisis.id}"%>></div>
+      <div class="text-center">Tweets per Minute</div>
+      <table class="table table-striped table-bordered">
+        <caption class="text-center" ><h4><strong><%=crisis.name%></strong></h4>Casualties</caption >
+        <!-- <tr><th align="left">This Week:<th><td>number_here</td></tr> -->
+        <!-- <tr><th align="left">This Month:<th><td>number_here</td></tr> --> 
+        <tr><th align="left">This Year:</th><td><%=crisis.get_curr_year_casualties%></td></tr>
+        <tr><th align="left">Last Year:</th><td><%=crisis.get_last_year_casualties%></td></tr> 
+        <tr><th align="left">Total:</th><td><%=crisis.get_total_casualties%></td></tr>    
+      </table>
+      <br>
+      <br>
+    </div>
   
-<%end%>
+  <%end%>
 
 </div>
 
