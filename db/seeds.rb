@@ -50,7 +50,7 @@
       )
 
     isr_plst_casual_2016=Casualty.create(
-      number: "72",
+      number: "88",
       week_ending: Time.new(2016,06,8),
       crisis_id: 1
       )
@@ -69,7 +69,7 @@
       )
 
     syria_casual_2016=Casualty.create(
-      number: "20,183",
+      number: "29,800",
       week_ending: Time.new(2016,06,8),
       crisis_id: 2
       )
@@ -87,7 +87,7 @@
       )
 
     afghan_casual_2016=Casualty.create(
-      number: "600",
+      number: "1,600",
       week_ending: Time.new(2016,06,8),
       crisis_id: 3
       )
